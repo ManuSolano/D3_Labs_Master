@@ -1,0 +1,70 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="description" content="">
+    <title>Exercise_8</title>
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <!-- Custom styling -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    
+    <nav class="navbar navbar-default">
+        <div class="container">
+            <h1>Exercise 8: Event handling</h1>
+            <h2>Manuel Fernando Solano Olivares</h2>
+            <a class="navbar-brand" href="#"><img id="logo" src="img/logo.png"></a>      
+        </div>
+    </nav>
+
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-12">
+                <div class="col-12 col-sm-1 mb-2 mb-sm-0">
+                    <button id="play-button" class="btn btn-primary">Play</button>
+                </div>
+                <div class="col-12 col-sm-1 mb-2 mb-sm-0">
+                    <button id="reset-button" class="btn btn-primary">Reset</button>
+                </div>
+                <div class="col-12 col-sm-8 mb-2 mb-sm-0">
+                    <div id="slider-div" class="d-flex justify-content-center align-items-center">
+                        <label class="mb-0 mr-2">Year:</label>
+                        <span id="year" class="mr-2">1800</span>
+                        <div id="date-slider" max="2014" min="1800" step="1"></div>
+                    </div>
+                </div>
+                <div class="col-12 col-sm-2">
+                    <select id="continent-select" class="form-control">
+                        <option selected value="all">All</option>
+                        <option value="europe">Europe</option>
+                        <option value="asia">Asia</option>
+                        <option value="americas">Americas</option>
+                        <option value="africa">Africa</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    
+    
+      
+    <!-- Bootstrap grid setup -->
+    <div class="container">
+        <div class="row">
+            <div id="chart-area"></div>  
+        </div>
+    </div>
+
+<!-- External JS libraries -->
+<script src="js/jquery.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="js/d3.min.js"></script>
+<!-- Custom JS -->
+<script src="js/main.js"></script>
+
+</body>
+</html>
