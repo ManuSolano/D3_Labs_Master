@@ -62,7 +62,7 @@ var xLabel = group.append("text")
     .attr("transform", "translate(0, -70)")
     .text("GDP Per Capita ($)");
 
-var legendArea = group.append("text")
+var yearLabel = group.append("text")
 	.attr("class", "x axis-label")
 	.attr("x", width - 50)
 	.attr("y", height - 20)
@@ -70,7 +70,7 @@ var legendArea = group.append("text")
 	.attr("text-anchor", "middle")
 	.attr("fill", "gray")
 
-var cont=0;
+let count = 0;
 
 d3.json("data/data.json").then((data)=>{    
 	data.forEach((d)=>{
@@ -111,9 +111,10 @@ d3.json("data/data.json").then((data)=>{
 	});
 
 	d3.interval( ( ) => {
-		update(years[cont % years.length], formattedData[cont % years.length]);
-		cont += 1;
-	}, 1000);
+		count++;
+
+		update(newData[count % time.length], time[count % time.length]);
+	}, 500);
     
 	update(years[cont % years.length], formattedData[cont % years.length]);
 	cont += 1;
@@ -155,14 +156,14 @@ function step(){
 }
 
 function update(year, data) {
-	legendArea.text(year);
+	yearLabel.text(year);
 
 	xAxisGroup.call(bottomAxis)
-    .selectAll("text")
-    .attr("y", "10")
-    .attr("x", "-5")
-    .attr("filled", "white")
-    .attr("text-anchor", "middle");
+		.selectAll("text")
+		.attr("y", "10")
+		.attr("x", "-5")
+		.attr("filled", "white")
+		.attr("text-anchor", "middle");
 
 	yAxisGroup.call(leftAxis);
 	var circles = group.selectAll("circle").data(data, (d) => { return d.country; });
